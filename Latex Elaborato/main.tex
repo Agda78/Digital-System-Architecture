@@ -1,0 +1,76 @@
+\documentclass[a4paper,12pt]{report}
+
+% Pacchetti necessari
+\usepackage[utf8]{inputenc} % Codifica UTF-8
+\usepackage[italian]{babel} % Lingua italiana
+\usepackage{geometry} % Margini del documento
+\usepackage{setspace} % Gestione della spaziatura
+\usepackage{titlesec} % Personalizzazione dei titoli
+\usepackage{tocloft} % Personalizzazione dell'indice
+\usepackage{subfiles} % Gestione di file separati
+\usepackage{graphicx} % Per inserire immagini
+\usepackage{hyperref} % Collegamenti ipertestuali
+
+% Impostazioni del documento
+\geometry{top=3cm, bottom=3cm, left=3cm, right=3cm}
+\onehalfspacing
+
+% Personalizzazione dei titoli
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}{\chaptername\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}
+
+% Personalizzazione dell'indice
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+% Impostazioni di hyperref
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
+    pdftitle={Elaborato di Architettura dei Sistemi Digitali},
+    pdfpagemode=FullScreen,
+}
+
+\begin{document}
+
+% Frontespizio
+\begin{titlepage}
+\begin{center}
+
+\includegraphics[width=0.3\textwidth]{logo_unina} \\
+\vspace{1cm}
+\large Università degli Studi di Napoli Federico II \\
+\textbf{Scuola Politecnica e delle Scienze di Base} \\
+Dipartimento di Ingegneria Elettrica e Tecnologie dell’Informazione \\
+\vspace{1cm}
+\LARGE \textbf{Corso di Laurea Magistrale in Ingegneria Informatica} \\
+\vspace{1cm}
+\Huge \textbf{Elaborato di Architettura dei Sistemi Digitali} \\
+\vspace{1cm}
+\large Prof. Nicola Mazzocca \\
+\large Prof.ssa Alessandra De Benedictis \\
+\vspace{1cm}
+\large a.a. 2024-25 \\
+\vspace{1cm}
+\large Studente: \\
+\Large \textbf{Agostino D’Amora} \\
+M63001784 \\
+
+\end{center}
+\end{titlepage}
+
+% Indice
+\tableofcontents
+
+% Capitolo 1
+\subfile{capitolo1}
+
+% Appendice
+\appendix
+\subfile{appendice}
+
+\end{document}
