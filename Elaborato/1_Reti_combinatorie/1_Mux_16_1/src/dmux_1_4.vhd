@@ -48,11 +48,14 @@ begin
 process(input,ind)
 begin
 -- Tramite il case descrivo il funzionamento della macchina
+output <= "0000";
+
 case ind is
     when "00" => output(0) <= input;
     when "01" => output(1) <= input;
     when "10" => output(2) <= input;
     when "11" => output(3) <= input;
+    when others => output <= "0000";
 end case;
 end process;
 
