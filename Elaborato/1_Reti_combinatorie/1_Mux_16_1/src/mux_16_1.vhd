@@ -42,7 +42,7 @@ architecture Behavioral of mux_16_1 is
 
 component mux_4_1 port(
     a : in std_logic_vector(3 downto 0);
-    s : in std_logic_vector(1 downto 0);
+    s_4 : in std_logic_vector(1 downto 0);
     y : out std_logic
 );
 end component;
@@ -51,34 +51,35 @@ signal a_in : std_logic_vector(3 downto 0);
 
 begin
 
--- Dichiarazione dei vari mux
+-- Dichiarazione dei primi 4 mux (componenti il primo layer)
 mux_1 : mux_4_1 port map(
     a => ins(3 downto 0),
-    s => path(1 downto 0),
+    s_4 => path(1 downto 0),
     y => a_in(0)
 );
 
 mux_2 : mux_4_1 port map(
     a => ins(7 downto 4),
-    s => path(1 downto 0),
+    s_4 => path(1 downto 0),
     y => a_in(1)
 );
 
 mux_3 : mux_4_1 port map(
     a => ins(11 downto 8),
-    s => path(1 downto 0),
+    s_4 => path(1 downto 0),
     y => a_in(2)
 );
 
 mux_4 : mux_4_1 port map(
     a => ins(15 downto 12),
-    s => path(1 downto 0),
+    s_4 => path(1 downto 0),
     y => a_in(3)
 );
 
+-- Dichiarazione e collegamento del mux finale
 mux_5 : mux_4_1 port map(
     a => a_in,
-    s => path(3 downto 2),
+    s_4 => path(3 downto 2),
     y => y_out
 );
 end Behavioral;

@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 01/21/2025 10:51:29 PM
+-- Create Date: 01/23/2025 08:05:46 PM
 -- Design Name: 
--- Module Name: mux_16_tb - Behavioral
+-- Module Name: mux_2_1 - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,30 +31,18 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity mux_16_board_simulation is
+entity mux_2_1 is
   Port (
-    X : in std_logic_vector(15 downto 0);
-    ch : in std_logic_vector(3 downto 0);
-    Y : out std_logic  
-   );
-end mux_16_board_simulation;
-
-architecture Behavioral of mux_16_board_simulation is
-
-component mux_16_1 port (
-        ins : in std_logic_vector(15 downto 0);
-        path : in std_logic_vector(3 downto 0);
-        y_out : out std_logic
+    a_0 : in std_logic;
+    a_1 : in std_logic;
+    s : in std_logic;
+    y_out : out std_logic 
 );
-end component;
+end mux_2_1;
 
+architecture structural of mux_2_1 is
 
 begin
+    y_out <= (a_0 and not(s)) or (a_1 and s);
 
-mux : mux_16_1 port map(
-    ins => X,
-    path => ch,
-    y_out => Y
-);
-
-end Behavioral;
+end structural;
